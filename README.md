@@ -21,7 +21,7 @@ go-dbi, please check out the [go-dbi](http://github.com) project on github.
 [install instructions](http://golang.org/doc/install.html).
 2. Ensure goinstall is on your $PATH.
 3. Install go-dbi: *$ goinstall github.com/thomaslee/go-dbi*
-4. Install gosqlite: *$ goinstall gosqlite.github.com/hg/sqlite*
+4. Install gosqlite: *$ goinstall gosqlite.googlecode.com/hg/sqlite*
 5. Install go-dbd-sqlite: *$ goinstall github.com/thomaslee/go-dbd-sqlite*
 
 Alternatively, you can clone the git repository & build it using make.
