@@ -54,8 +54,13 @@ func (self *SqliteConnection) Rollback() os.Error {
     return nil
 }
 
-func (self *SqliteConnection) Close() os.Error {
-    return self.impl.Close()
+func (self *SqliteConnection) Close() (err os.Error) {
+    err = self.impl.Close()
+    if err != nil {
+        return
+    }
+    self.impl = nil
+    return
 }
 
 

@@ -18,20 +18,17 @@ func newResultSet(stmt *_sqlite.Stmt) *SqliteResultSet {
     //
     // hack to work around sqlite API
     //
-    // XXX Reset() NOT OFFICIALLY SUPPORTED BY RC/GOSQLITE!
+    // XXX Reset() not officially supported by gosqlite
     //
-    for stmt.Next() {
-        rs.numRows++
-    }
-    stmt.Reset()
+    //for stmt.Next() {
+    //    rs.numRows++
+    //}
+    //stmt.Reset()
     return rs
 }
 
 func (rs *SqliteResultSet) RowCount() uint64 {
-    num := uint64(0)
-    for rs.stmt.Next() {
-        num++
-    }
+    // XXX broken
     return rs.numRows
 }
 
@@ -48,7 +45,12 @@ func (rs *SqliteResultSet) NamedScan(refs ...interface{}) os.Error {
     return nil
 }
 
-func (rs *SqliteResultSet) Close() os.Error {
-    return rs.stmt.Finalize()
+func (rs *SqliteResultSet) Close() (err os.Error) {
+    err = rs.stmt.Finalize()
+    if err != nil {
+        return
+    }
+    rs.stmt = nil
+    return
 }
 
