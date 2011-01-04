@@ -4,13 +4,15 @@ go-dbd-sqlite is an sqlite driver implementation for
 [go-dbi](http://github.com/thomaslee/go-dbi), a database interface for the
 [Go](http://golang.org) programming language.
 
+__WARNING: THIS IS PRE-ALPHA SOFTWARE__
+
 ## Status
 
 Pre-Alpha.
 
 ## Overview
 
-This package provides a MySQL driver for go-dbi. For more information about
+This package provides an sqlite driver for go-dbi. For more information about
 go-dbi, please check out the [go-dbi](http://github.com) project on github.
 
 ## Installation
